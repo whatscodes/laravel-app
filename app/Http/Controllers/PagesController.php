@@ -6,31 +6,21 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function index(){
-
-        $value = isset($_POST['item']) ? $_POST['item'] : 0; //to be displayed
-        if(isset($_POST['incqty'])){
-        $value += 1;
-}
-
-        if(isset($_POST['decqty'])){
-        $value -= 1;                                            
-}
+    public function show($post)
+    {
+        
+        $posts = [
+            'my-first-post' => 'This is the first post',
+            'my-second-post' => 'This is the second post'
+        ];
     
+        if(! array_key_exists($post, $posts)) {
+            abort(404,'Sorry, does not exist');
+        }
+    
+        return view('post', [
+            'post' => $posts[$post]
+            ]);                                        
     }
+    
 }
-
-?>
-<!DOCTYPE html> 
-<html> 
-<body>
-<form method='post' action='<?= $_SERVER['PHP_SELF']; ?>'>
-   
-   <td>
-       <button name='incqty'>+</button>
-       <input type='text' size='1' name='item' value='<?= $value; ?>'/>
-       <button name='decqty'>-</button>
-   </td>
-</form>
-</body>
-</html>

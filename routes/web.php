@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::post('/calculate', 'CalculatorController@incrementFunc');
 
+Route::get('/app/{post}', 'PagesController@show');
 /*
 Route::get('/', 'PagesController@index');
 Route::post('/', 'PagesController@index');

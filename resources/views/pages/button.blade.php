@@ -11,6 +11,13 @@
        <button name='decqty'>-</button>
    </td>
 </form>
+<div>
+    @if(session('info'))
+    <div>
+        {{ session('info') }}
+    </div>
+    @endif    
+</div>
 
 </body>  
 </html> 

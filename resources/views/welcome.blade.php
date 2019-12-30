@@ -51,7 +51,7 @@
             {{ csrf_field() }}
             <td>
                 <button name='incqty'>+</button>
-                <input type='text' size='1' name='item'>
+               
                 <button name='decqty'>-</button>
             </td>
             </form>

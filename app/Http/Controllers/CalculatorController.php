@@ -38,7 +38,7 @@ class CalculatorController extends Controller
     public function incrementFunc(Request $request){
         
         $request = $_POST;
-        $value = isset($_POST['info']) ? $_POST['info'] : 0; //to be displayed
+        $value = 0;
         if(isset($_POST['plus'])) { 
             $value = +1;
         }
@@ -47,7 +47,6 @@ class CalculatorController extends Controller
             $value = -1; 
         }
 
-        $value->increment('info'); 
         return redirect('/')->with('info', $value);
         
     }
